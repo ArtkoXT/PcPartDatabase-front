@@ -10,6 +10,8 @@ import Memory from './pages/Memory';
 import axios from './AxiosConfig';
 import NotFound from './pages/NotFound';
 import CpuInfo from "./pages/cpu/CpuInfo";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
           <Route path='/graphic cards/all' element={<GraphicCards />} />
           <Route path='/motherboards/all' element={<Motherboards />} />
           <Route path='/memory/all' element={<Memory />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
           <Route path='*' element={<NotFound />} />
           
         </Route>

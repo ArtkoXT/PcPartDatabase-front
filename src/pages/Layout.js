@@ -18,7 +18,7 @@ const Layout = () => {
                 <span className="title-bar">
                     <Link to="/" className="title">PcPartDatabase</Link>
                     <Link to="/login" className="login-singup-buttons">Login</Link>
-                    <Link to="/register" className="login-singup-buttons">Sign-up</Link>
+                    <Link to="/register" className="login-singup-buttons">Sign up</Link>
                 </span>
                 <div className="navbar-buttons">
                     <ul className="bar-list">
