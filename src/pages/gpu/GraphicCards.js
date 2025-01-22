@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import GpuList from "../GpuList";
-import config from '../config';
+import GpuList from "./GpuList";
+import config from "../../config";
 
 export default function GraphicCards() {
 
@@ -16,9 +16,7 @@ export default function GraphicCards() {
     return(
         <ul>
             <h1>List of All Graphic Cards</h1>
-            {gpuList.map( (gpu) => (
-                <GpuList gpu={gpu} />
-            ))}
+            <GpuList gpuList={gpuList} />
         </ul>
     );
 };

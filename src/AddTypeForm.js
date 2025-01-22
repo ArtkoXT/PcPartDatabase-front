@@ -1,9 +1,11 @@
 import React from "react";
 
-const AddTypeForm = (addNewType) => {
+const AddTypeForm = () => {
+
+    
 
     return(
-        <form onSubmit={addNewType}>
+        <form >
             <label>
                 Enter a name:
                 <input type="text" />

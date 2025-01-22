@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import TypeCard from '../TypeCard';
 import config from '../config';
 import AddTypeForm from '../AddTypeForm';
+import './Home.css'
 
 export default function Home() {
     const [types, setTypes] = useState([]);
@@ -33,32 +34,34 @@ export default function Home() {
     };
     
     return (
-        <div className="item-container">
-        <h1>Welcome to PcPartDatabase.</h1>
-        <button 
-            className='debug-button' 
-            onClick={() => debugView ? 
-            setDebugView(false) 
-            : setDebugView(true)}
-            >
-                Debug View
-            </button>
-        <ul className='item-list'>
-            {types.map( (e) => (
-                <TypeCard 
-                item={e}
-                deleteType={deleteType}
-                debugView={debugView}
-                />
-            ))}
-            </ul>
+        <div className='page-background'>
+            <div className="item-container">
+            <h1 style={{color: "#c4c4c4"}}>Welcome to the PcPartDatabase.</h1>
             <button 
-            className='button-addnew'
-            onClick={() => showForm ? setShowForm(false) : setShowForm(true)}
-            >
-            Add new product type</button>
-            <div>
-                {showForm ? <AddTypeForm addNewType={addNewType} /> : null}
+                className='debug-button' 
+                onClick={() => debugView ? 
+                setDebugView(false) 
+                : setDebugView(true)}
+                >
+                    Debug View
+                </button>
+            <ul className='item-list'>
+                {types.map( (e) => (
+                    <TypeCard 
+                    item={e}
+                    deleteType={deleteType}
+                    debugView={debugView}
+                    />
+                ))}
+                </ul>
+                <button 
+                className='button-addnew'
+                onClick={() => showForm ? setShowForm(false) : setShowForm(true)}
+                >
+                Add new product type</button>
+                <div>
+                    {showForm ? <AddTypeForm addNewType={addNewType} /> : null}
+                </div>
             </div>
         </div>
     );

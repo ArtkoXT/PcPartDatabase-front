@@ -1,0 +1,70 @@
+.table-container {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.table-style {
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10px;
+    border-collapse: collapse;
+}
+.table-head-items {
+    background-color: rgb(117, 117, 117);
+    padding: 5px;
+    border-bottom: 2px solid;
+    border-color: rgb(68, 68, 68);
+}
+.table-item {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 2px solid;
+    color: aliceblue;
+    border-color: rgb(19, 88, 88);
+}
+.table-tr {
+    background-color: rgb(10, 49, 49);
+}
+.table-tr:hover {
+    background-color: rgb(80, 80, 80);
+}
+.add-button {
+    margin-right: 30%;
+    align-self: flex-end;
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+  
+.add-button:hover {
+    background-color: #218838;
+}
+
+.remove-button {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.remove-button:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+.remove-button + .remove-button {
+    margin-left: 5px;
+}
+.link-style {
+    text-decoration: none;
+    color: aliceblue
+}
+
+.link-style:hover {
+    text-decoration: none;
+    color: rgb(94, 180, 255)
+}

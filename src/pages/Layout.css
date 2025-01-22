@@ -1,0 +1,54 @@
+.title-bar {
+    font-weight: bold;
+    font-size: larger;
+    margin-left: 10px;
+    color: rgb(196, 196, 196);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+}
+.title {
+    font-weight: bold;
+    font-size: larger;
+    text-decoration-line: none;
+    margin-left: 10px;
+    color: rgb(196, 196, 196);
+}
+.login-singup-buttons {
+    justify-self: flex-end;
+    font-weight: bold;
+    font-size: medium;
+    padding: 4px;
+    margin-left: 5px;
+    text-decoration-line: none;
+    color: black;
+}
+.nav-bar {
+    background-color: rgb(30, 57, 80);
+    border-bottom: 5px solid;
+    border-color: rgb(46, 75, 75);
+    padding-top: 10px;
+}
+.navbar-buttons {
+    background-color: rgb(17, 31, 44);
+    margin-top: 10px;
+    display: flex;
+}
+.bar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.nav-button {
+    margin-left: 0px;
+    padding: 10px;
+    border: 2px solid;
+    border-color: rgb(56, 90, 90);
+    background-color: rgb(17, 31, 44);
+    font-weight: bold;
+    text-decoration-line: none;
+    color: rgb(196, 196, 196);
+}
+.nav-button:hover {
+    background-color: rgb(53, 83, 107);
+}
