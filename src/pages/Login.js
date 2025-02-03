@@ -2,8 +2,12 @@ import "./styles/RegisterPage.css"
 
 export default function Login() {
 
+    const handleSubmit = (data) => {
+        
+    }
+
     return (
-        <div className="form-container">
+        <div onSubmit={handleSubmit} className="form-container">
             <form className="form">
                 <h1 style={{color: 'rgb(196, 196, 196)'}}>Login</h1>
                 <h2 style={{color: 'rgb(196, 196, 196)'}}>Sign in to your account</h2>
@@ -11,10 +15,10 @@ export default function Login() {
                     <label 
                     style={{color: 'rgb(196, 196, 196)', 
                     fontWeight: 'bold'}}
-                    >Username:</label>
+                    >Email:</label>
                     <input className="form-item"
                     id="username"
-                    placeholder="Your username"
+                    placeholder="email@example.com"
                     type="text"
                     required>
                     </input>
@@ -23,11 +27,11 @@ export default function Login() {
                 <label 
                     style={{color: 'rgb(196, 196, 196)', 
                     fontWeight: 'bold'}}
-                    >Password</label>
+                    >Password:</label>
                 <input className="form-item"
                 id="password"
                 type="password"
-                placeholder="Your password"
+                placeholder="********"
                 required
                 ></input>
                 </div>

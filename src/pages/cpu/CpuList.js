@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom';
 import '../tableStyle.css';
 import React from "react";
 
-const CpuList = ({cpuList, handleDelete}) => {
+const CpuList = ( {cpuList, handleDelete} ) => {
 
     const cpuColumns = [
-        {header: "Manufacturer", key: "manufacturer_name", bold: true},
+        {header: "Manufacturer", key: "manufacturer_name", bold: true, sort: true},
         {header: "Model", key: "model", bold: true, link: true},
         {header: "Core Clock", key: "coreClock"},
         {header: "Boost Clock", key: "boostClock"},
-        {header: "Core Count", key: "Core Count"},
-        {header: "Thread Count", key: "Thread Count"},
+        {header: "Core Count", key: "coreCount"},
+        {header: "Thread Count", key: "threadCount"},
         {header: "TDP", key: "tdp"},
     ]
 
@@ -31,7 +31,7 @@ const CpuList = ({cpuList, handleDelete}) => {
                             {cpuColumns.map( ( {key,bold,link} ) => (
                                 <td key={key} 
                                     className='table-item' 
-                                    style={ bold? { fontWeight: "bold"} : {} }>
+                                    style={ bold ? { fontWeight: "bold"} : {} }>
                                     {link ? (
                                         <Link to={`/cpus/${cpu.id}`} className='link-style'>
                                             {cpu[key]}
@@ -41,7 +41,7 @@ const CpuList = ({cpuList, handleDelete}) => {
                                         )
                                     }
                                 </td>
-                            ))}
+                                ))}
                             <td>
                                 <button onClick={ () => handleDelete(cpu.id)} className='remove-button'>Delete</button>
                                 <button className='remove-button'>Edit</button>
