@@ -16,7 +16,7 @@ const TypeCard = ( {item} ) => {
             <Link to={`/${item.categoryName}`} className='item-button' onClick={routeChange}>
                 <img src={item.imageUrl} alt={item} className="item-image"/>
             </Link>
-            <span className='item-name'>{item.categoryName}</span>
+            <span className='item-name'>{item}</span>
         </li>
     );
 };
