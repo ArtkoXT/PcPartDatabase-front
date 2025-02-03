@@ -14,7 +14,7 @@ export default function Register() {
     const [isFailed, setIsFailed] = useState(false);
 
     const onSubmit = async (data) => {
-            const response = await axios.post('/users/add', data);
+            const response = await axios.post('/users/register', data);
             console.log('User created successfully', response.data);
 
     }
