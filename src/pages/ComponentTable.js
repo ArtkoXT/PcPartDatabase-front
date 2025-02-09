@@ -40,14 +40,14 @@ const ComponentList = ( {category} ) => {
         <div className='table-container'>
             <h1 style={{color: 'rgb(196, 196, 196)'}}>{category} List</h1>
             <table className='table-style'>
-                <thead className='table-head'>
+                <thead>
                     <tr className='table-head'>
                         {columns.map((col) => (
                             <th key={col.key} className="table-head-items">
                                 {col.header}
-                            </th>
+                            </th>       
                         ))}
-                        
+                        <th className="table-head-items"> </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,19 +63,20 @@ const ComponentList = ( {category} ) => {
                                             {c[key]}
                                         </Link>
                                     ) : (
-                                    c?.[key] ?? 'N/A'
-                                    )}
+                                        key === 'price' ? `${c[key]} €` : c[key]
+                                        )
+                                    }
                                 </td>
                             ))}
                             <td>
-                                <button className='remove-button' onClick={ () => handleDelete(c.id)}>Delete</button>
-                                <button className='remove-button'>Edit</button>
+                                <Link className='remove-button' onClick={ () => handleDelete(c.id)}>Delete</Link>
+                                <Link to={`/component/edit/${c.id}`} className='remove-button'>Edit</Link>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <Link className="add-button">Add</Link>
+            <Link to={"/component/add"} className="add-button">Add</Link>
         </div>
     )
 };

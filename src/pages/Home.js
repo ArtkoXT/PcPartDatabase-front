@@ -4,7 +4,7 @@ import TypeCard from '../TypeCard';
 import './Home.css'
 
 export default function Home() {
-    const [types, setTypes] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect( () => {
         fetchCategories();
@@ -14,7 +14,7 @@ export default function Home() {
         try {
             const response = await axios.get('/components/categories');
             console.log(response.data);
-            setTypes(response.data);
+            setCategories(response.data);
         } catch (error) {
             console.error('Error when retrieving categories: ', error)
         }
@@ -25,7 +25,7 @@ export default function Home() {
             <div className="item-container">
             <h1 style={{color: "#c4c4c4"}}>Welcome to the PcPartDatabase.</h1>
             <ul className='item-list'>
-                {types.map( (e) => (
+                {categories.map( (e) => (
                     <TypeCard 
                     item={e}
                     />

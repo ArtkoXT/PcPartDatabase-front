@@ -7,6 +7,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import ComponentList from "./pages/ComponentTable";
 import ComponentInfo from "./pages/ComponentInfo";
+import ComponentAddForm from "./pages/ComponentAddForm";
+import ForumHome from "./pages/ForumHome";
 
 function App() {
 
@@ -21,8 +23,11 @@ function App() {
           <Route path='/motherboards/all' element={<ComponentList category={"Motherboard"} />} />
           <Route path='/memory/all' element={<ComponentList category={"RAM"} />} />
           <Route path='/component/:id' element={<ComponentInfo />} />
+          <Route path='/component/add' element={<ComponentAddForm />} />
+          <Route path='/component/edit/:id' element={<ComponentAddForm isEdit={true}/>} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/forum' element={<ForumHome />} />
           <Route path='*' element={<NotFound />} />  
         </Route>
       </Routes>

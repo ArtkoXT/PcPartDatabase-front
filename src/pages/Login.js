@@ -9,8 +9,8 @@ export default function Login() {
     return (
         <div onSubmit={handleSubmit} className="form-container">
             <form className="form">
-                <h1 style={{color: 'rgb(196, 196, 196)'}}>Login</h1>
-                <h2 style={{color: 'rgb(196, 196, 196)'}}>Sign in to your account</h2>
+                <h1 style={{color: '#c4c4c4'}}>Login</h1>
+                <h2 style={{color: '#c4c4c4'}}>Sign in to your account</h2>
                 <div>
                     <label 
                     style={{color: 'rgb(196, 196, 196)', 

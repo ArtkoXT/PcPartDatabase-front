@@ -8,11 +8,11 @@
   flex-direction: column;
 }
 .item-list {
-  background-color: rgb(10, 49, 49);
+  background-color: #0a3131;
   list-style: none;
   padding: 100px 50px 100px 50px;
   border: 5px solid;
-  border-color: rgb(19, 88, 88);
+  border-color: #135858;
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;

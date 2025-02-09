@@ -6,54 +6,65 @@
     justify-content: center;
 }
 .table-style {
-    margin-left: 30%;
-    margin-right: 30%;
-    padding: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 30px;
     border-collapse: collapse;
 }
-.table-head-items {
-    background-color: rgb(117, 117, 117);
-    padding: 5px;
+.table-head {
+    background-color: #757575;
     border-bottom: 2px solid;
-    border-color: rgb(68, 68, 68);
+    border-color: #444444;
+
+}
+.table-head-items {
+    text-align: left;
+    padding: 15px;
 }
 .table-item {
     text-align: left;
-    padding: 5px;
-    border-bottom: 2px solid;
+    padding: 10px;
     color: aliceblue;
-    border-color: rgb(19, 88, 88);
 }
 .table-tr {
-    background-color: rgb(10, 49, 49);
+    border-bottom: 2px solid;
+    border-color: #135858;
+    background-color: #0a3131;
 }
 .table-tr:hover {
-    background-color: rgb(80, 80, 80);
+    background-color: #0e4444;
 }
 .add-button {
-    margin-right: 30%;
-    align-self: flex-end;
+    margin-top: 10px;
+    align-self: center;
     display: inline-block;
-    background-color: #28a745;
-    color: white;
+    color: black;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 4px;
     font-weight: bold;
+    background-color: #e6c07b;
+    padding: 5px 10px;
+    border: 2px solid #635335;
+    border-radius: 8px;
 }
   
 .add-button:hover {
-    background-color: #218838;
+    background-color: #a18757;
 }
 
 .remove-button {
-    border: 1px solid;
-    border-radius: 4px;
-    padding: 10px;
+    align-self: center;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #e6c07b;
+    padding: 5px 10px;
+    border: 2px solid #635335;
+    border-radius: 8px;
 }
 
 .remove-button:hover {
-    background-color: bisque;
+    background-color: #7e6538;
     cursor: pointer;
 }
 .remove-button + .remove-button {
