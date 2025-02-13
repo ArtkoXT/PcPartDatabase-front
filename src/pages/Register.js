@@ -1,20 +1,24 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from '../AxiosConfig';
 import "./styles/RegisterPage.css"
-import { useNavigate } from "react-router-dom";
+
 
 export default function Register() {
 
     const [userData, setUserData] = useState({
         username: "",
         email: "",
-        password: ""
+        password: "",
+        roles: [],
+        topics: [],
+        comments: []
     });
 
     const [isFailed, setIsFailed] = useState(false);
 
     const onSubmit = async (data) => {
-            const response = await axios.post('/users/register', data);
+            const response = await axios.post('/auth/register', data);
             console.log('User created successfully', response.data);
 
     }

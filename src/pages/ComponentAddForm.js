@@ -9,8 +9,8 @@ export default function ComponentAddForm({isEdit}) {
     const { id } = useParams();
 
     const [componentData, setComponentData] = useState({
+        manufacturer_id: "",
         name: "",
-        manufacturer: {},
         price: "",
         category: "",
         properties: {}
@@ -39,8 +39,8 @@ export default function ComponentAddForm({isEdit}) {
             console.log(response.data);
             setComponentData(
                 {
+                    manufacturer_id: data.manufacturer_id,
                     name: data.name,
-                    manufacturer: {id: data.manufacturer_id, name: data.manufacturer_name},
                     price: data.price,
                     category: data.category,
                     properties: data.properties
@@ -73,7 +73,7 @@ export default function ComponentAddForm({isEdit}) {
     const onSubmit = async (componentData) => {
         try {
             const response = isEdit ? await axios.put(`/components/${id}`, componentData) : await axios.post('/components/add', componentData);
-            console.log('Component added successfully', response.data);
+            console.log('Success!', response.data);
         } catch (error) {
             console.error('Error adding component: ', error)
         }
@@ -81,10 +81,8 @@ export default function ComponentAddForm({isEdit}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             await onSubmit(componentData);
-            alert(`${componentData.category} added successfully!`)
             navigate(-1)
         } catch (error) {
             console.error("Error when submiting form: ", error);
@@ -111,9 +109,9 @@ export default function ComponentAddForm({isEdit}) {
                 <select
                     className="add-form-item-value"
                     id="manufacturer-select"
-                    value={componentData.manufacturer}
+                    value={componentData.manufacturer_id}
                     onChange={ (e) => {
-                        setComponentData({...componentData, manufacturer: e.target.value});
+                        setComponentData({...componentData, manufacturer_id: e.target.value});
                         }
                     }
                     required

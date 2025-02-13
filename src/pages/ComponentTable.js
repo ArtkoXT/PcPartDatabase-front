@@ -9,7 +9,7 @@ const ComponentList = ( {category} ) => {
 
     const columns = [
         {header: "Manufacturer", key: "manufacturer_name", bold: true},
-        {header: "Model", key: "name", bold: true, link: true},
+        {header: "Name", key: "name", bold: true, link: true},
         {header: "Price", key: "price"}
     ]
 
@@ -17,11 +17,11 @@ const ComponentList = ( {category} ) => {
 
     useEffect( () => {
         fetchComponents();
-    });
+    }, []);
 
     const fetchComponents = async () => {
         try {
-            const response = await axios.get(`/components/categories/${category}`);
+            const response = await axios.get('/components/all', {withCredentials: true});
             setComponentList(response.data);
         } catch (error) {
             console.error('Error when retrieving components: ', error)
@@ -51,7 +51,7 @@ const ComponentList = ( {category} ) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {componentList.map( (c) => (
+                    {componentList.filter(c => c.category === category).map( (c) => (
                         <tr key={c.id} className='table-tr'>
                             {columns.map(({key, bold, link}) => (
                                 <td key={key} 
