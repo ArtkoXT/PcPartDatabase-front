@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from '../AxiosConfig';
-import TypeCard from '../TypeCard';
-import './Home.css'
+import TypeCard from '../CategoryCards';
+import './styles/Home.css'
 
 export default function Home() {
     const [categories, setCategories] = useState([]);

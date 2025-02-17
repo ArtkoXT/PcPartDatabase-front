@@ -1,4 +1,4 @@
-import './styles/Forum.css'
+import '../styles/Forum.css'
 
 
 export default function ForumHome() {

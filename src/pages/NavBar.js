@@ -4,19 +4,30 @@ import { faMicrochip } from '@fortawesome/free-solid-svg-icons'
 import { faDatabase } from '@fortawesome/free-solid-svg-icons'
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-import './Layout.css'
+import './styles/NavBar.css'
+import { useState } from "react";
+import AuthService from "../AuthService";
+import axios from '../AxiosConfig';
 
 const Layout = () => {
 
-    const loggedIn = false;
+    const user = AuthService.getCurrentUser();
+
+    const handleLogout = async () => {
+        await axios.post("/auth/signout", {}, { withCredentials: true });
+        AuthService.logout();
+    };
+
 
     const navLinks = [
         { to: "/", label: "Home", icon: {} },
-        { to: "/cpus/all", label: "CPUs", icon: faMicrochip },
-        { to: "/graphic cards/all", label: "Graphic Cards", icon: {} },
-        { to: "/motherboards/all", label: "Motherboards", icon: {} },
-        { to: "/memory/all", label: "Memory", icon: {} },
+        { to: "/components/cpus", label: "CPUs", icon: faMicrochip },
+        { to: "/components/graphic_cards", label: "Graphic Cards", icon: {} },
+        { to: "/components/motherboards", label: "Motherboards", icon: {} },
+        { to: "/components/memory", label: "Memory", icon: {} },
         { to: "/forum", label: "Forum", icon: {} },
     ];
 
@@ -26,8 +37,23 @@ const Layout = () => {
                 <span className="title-bar">
                     
                     <Link to="/" className="title"><FontAwesomeIcon icon={faDatabase} /> PcPartDatabase</Link>
-                    {loggedIn ?
-                      null
+                    {user ?
+                      <>
+                        <button
+                            onClick={handleLogout}
+                            className="login-singup-buttons">
+                                <FontAwesomeIcon 
+                                icon={faArrowRightFromBracket} 
+                                style={{color: '#c4c4c4'}} /> Logout
+                        </button>
+                        <Link
+                            to="/profile"
+                            className="login-singup-buttons">
+                                <FontAwesomeIcon 
+                                icon={faUser} 
+                                style={{color: '#c4c4c4'}} /> Profile
+                        </Link>
+                      </>
                     :
                     <>
                         <Link 
@@ -68,4 +94,4 @@ const Layout = () => {
     )
 }
 
-export default Layout
+export default Layout;

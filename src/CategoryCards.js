@@ -1,5 +1,5 @@
 import React from "react";
-import './TypeCard.css';
+import './pages/styles/CategoryCards.css';
 import { Link } from "react-router-dom";
 
 const TypeCard = ( {item} ) => {

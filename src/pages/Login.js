@@ -16,7 +16,7 @@ export default function Login() {
     const onSubmit = async (data) => {
          const response = await axios.post('/auth/login', data);
          console.log('Response received', response.data);
-         localStorage.setItem("userInfo", response.data);
+         localStorage.setItem("userInfo", JSON.stringify(response.data));
 
     }
 
@@ -27,6 +27,7 @@ export default function Login() {
             await onSubmit(userData);
             alert('Login successful!')
             navigate("/")
+            window.location.reload();
         } catch (error) {
             console.error("Error when submiting credentials: ", error);
             setError("Invalid Email or Password. Please try again.")

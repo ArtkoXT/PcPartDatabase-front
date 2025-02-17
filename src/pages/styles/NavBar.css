@@ -22,12 +22,17 @@
     color: #c4c4c4;
 }
 .login-singup-buttons {
+    background: none;
+    border: none;
     font-weight: bold;
     font-size: medium;
     padding: 4px;
     margin-left: 5px;
     text-decoration-line: none;
     color: #000000;
+}
+.login-singup-buttons:hover {
+    cursor: pointer;
 }
 .nav-bar {
     background-color: #1e3950;

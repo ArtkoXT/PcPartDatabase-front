@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from "../AxiosConfig";
-import './tableStyle.css';
+import './styles/tableStyle.css';
+import AuthService from "../AuthService";
 
 
 
 const ComponentList = ( {category} ) => {
+
+    const user = AuthService.getCurrentUser();
+
+    const [isAdmin, setIsAdmin] = useState(false);
+
 
     const columns = [
         {header: "Manufacturer", key: "manufacturer_name", bold: true},
@@ -17,7 +23,14 @@ const ComponentList = ( {category} ) => {
 
     useEffect( () => {
         fetchComponents();
+        checkIfAdmin();
     }, []);
+
+    const checkIfAdmin = () => {
+        if( user && user.roles.includes("ROLE_ADMIN")) {
+            setIsAdmin(true)
+        }
+    }
 
     const fetchComponents = async () => {
         try {
@@ -31,6 +44,7 @@ const ComponentList = ( {category} ) => {
     const handleDelete = async (id) => {
         try {
             await axios.delete(`/components/${id}`);
+            fetchComponents();
         } catch (error) {
             console.error('Error trying to delete component: ', error)
         }
@@ -68,15 +82,23 @@ const ComponentList = ( {category} ) => {
                                     }
                                 </td>
                             ))}
+                            
                             <td>
+                            {isAdmin ? 
+                            <>
                                 <Link className='remove-button' onClick={ () => handleDelete(c.id)}>Delete</Link>
                                 <Link to={`/component/edit/${c.id}`} className='remove-button'>Edit</Link>
+                            </>
+                                : null}
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            {isAdmin? 
             <Link to={"/component/add"} className="add-button">Add</Link>
+            : null
+            }
         </div>
     )
 };

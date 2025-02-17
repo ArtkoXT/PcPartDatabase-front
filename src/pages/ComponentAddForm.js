@@ -11,6 +11,7 @@ export default function ComponentAddForm({isEdit}) {
     const [componentData, setComponentData] = useState({
         manufacturer_id: "",
         name: "",
+        manufacturer_name: "",
         price: "",
         category: "",
         properties: {}
@@ -41,6 +42,7 @@ export default function ComponentAddForm({isEdit}) {
                 {
                     manufacturer_id: data.manufacturer_id,
                     name: data.name,
+                    manufacturer_name: data.manufacturer_name,
                     price: data.price,
                     category: data.category,
                     properties: data.properties
