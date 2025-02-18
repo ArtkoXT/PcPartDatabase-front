@@ -38,7 +38,7 @@ const Layout = () => {
                     
                     <Link to="/" className="title"><FontAwesomeIcon icon={faDatabase} /> PcPartDatabase</Link>
                     {user ?
-                      <>
+                      <div className="auth-btn-group">
                         <button
                             onClick={handleLogout}
                             className="login-singup-buttons">
@@ -53,9 +53,9 @@ const Layout = () => {
                                 icon={faUser} 
                                 style={{color: '#c4c4c4'}} /> Profile
                         </Link>
-                      </>
+                      </div>
                     :
-                    <>
+                    <div className="auth-btn-group">
                         <Link 
                             to="/login" 
                             className="login-singup-buttons"> 
@@ -71,7 +71,7 @@ const Layout = () => {
                                     style={{color: '#c4c4c4'}} /
                                     > Sign up
                         </Link>
-                    </> 
+                    </div> 
                     }   
                 </span>
                 <div className="navbar-buttons">

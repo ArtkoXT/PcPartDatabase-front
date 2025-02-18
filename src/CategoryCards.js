@@ -6,7 +6,7 @@ const TypeCard = ( {item} ) => {
 
     const catNames = {
         CPU: "cpus",
-        GPU: "graphic cards",
+        GPU: "graphic_cards",
         RAM: "memory",
         MOTHERBOARD: "motherboards"
     }
@@ -14,7 +14,7 @@ const TypeCard = ( {item} ) => {
     return (
 
         <li key={item.id} className="item">
-            <Link to={`/${catNames[item]}/all`} className='item-button'>
+            <Link to={`components/${catNames[item]}`} className='item-button'>
                 <img src={item.imageUrl} alt={item} className="item-image"/>
             </Link>
             <span className='item-name'>{item}</span>

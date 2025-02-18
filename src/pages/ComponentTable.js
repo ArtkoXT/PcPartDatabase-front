@@ -42,11 +42,14 @@ const ComponentList = ( {category} ) => {
     }
 
     const handleDelete = async (id) => {
-        try {
-            await axios.delete(`/components/${id}`);
-            fetchComponents();
-        } catch (error) {
-            console.error('Error trying to delete component: ', error)
+        if(window.confirm("Are you sure you want to delete this?")) {
+            try {
+                await axios.delete(`/components/${id}`);
+                fetchComponents();
+                alert('Deleted Successfuly!')
+            } catch (error) {
+                console.error('Error trying to delete component: ', error)
+            }
         }
     }
 

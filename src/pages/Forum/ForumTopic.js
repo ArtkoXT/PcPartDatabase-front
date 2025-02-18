@@ -61,10 +61,15 @@ export default function ForumTopic() {
             <h1 className='forum-title'>PcPartDatabase Forum</h1>
             <div className='comment-list'>
                 <div className='topic-title-header-container'>
-                    <button 
-                    className="go-back-btn"
-                    onClick={() => navigate(-1)}
-                    ><FontAwesomeIcon icon={faTurnUp} /> Go Back</button>
+                    <div className="header-btn-group">
+                        <button 
+                        className="go-back-btn"
+                        onClick={() => navigate(-1)}
+                        ><FontAwesomeIcon icon={faTurnUp} /> Go Back</button>
+                        {user && topic.author_id === user.id && (
+                        <button>Delete topic</button>
+                        )}
+                    </div>
                     <h2 className='topic-title'>{topic.title}</h2>
                 </div>
                 {comments?.map( (comment) => (
@@ -79,14 +84,11 @@ export default function ForumTopic() {
                                 </div> 
                                 <span className='creation-date'>{comment.createTime}</span>
                             </div>
-                            {/* {user ?
-                                {comment.author_id === user.id && (
+                                {user && comment.author_id === user.id && (
                                     <div>
-                                        <button>edit</button>
-                                        <button>delete</button>
+                                        <button>edit</button> <button>delete</button>
                                     </div>
-                                )} : null
-                            } */}
+                                )}
                         </div>
                     </div>
                     ))}

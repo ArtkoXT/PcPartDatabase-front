@@ -1,17 +1,21 @@
 .title-bar {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     align-items: center;
     font-weight: bold;
     font-size: larger;
-    margin-left: 10px;
     color: #c4c4c4;
 }
 .title {
     font-weight: bold;
     font-size: larger;
     text-decoration-line: none;
-    margin-left: 10px;
+    margin-left: 20px;
     color: #c4c4c4;
+}
+.auth-btn-group{
+    margin-right: 50px;
 }
 .title-icon {
     font-weight: bold;

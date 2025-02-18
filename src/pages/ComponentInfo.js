@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from '../AxiosConfig';
 import "./styles/ComponentInfo.css"
+import AuthService from "../AuthService";
 
 export default function ComponentInfo() {
 
     const [component, setComponent] = useState({})
 
     const { id } = useParams();
+
+    const user = AuthService.getCurrentUser();
 
     useEffect( () => {
         fetchComponent();
@@ -52,7 +55,9 @@ export default function ComponentInfo() {
                     </li>
                 )}
             </ul>
+            {user && user.roles.includes('ADMIN') (
             <Link to={`/component/edit/${id}`} className='add-button'>Edit</Link>
+            )}
         </div>
     )
 }

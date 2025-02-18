@@ -6,6 +6,7 @@
     border: 5px solid #0a3131;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
 }
 .topic-title-header-container{
     display: flex;
@@ -17,6 +18,10 @@
     padding: 5px;
     background-color: #b4b4b4;
     color: black;
+}
+.header-btn-group{
+    display: flex;
+    justify-content: space-between;
 }
 .go-back-btn{
     background: none;
@@ -46,6 +51,7 @@
     text-align: start;
     width: 100%;
     min-height: 100px;
+    padding-bottom: 10px;
     border-bottom: 1px solid;
 }
 
