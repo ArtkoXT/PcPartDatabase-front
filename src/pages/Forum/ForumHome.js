@@ -52,7 +52,7 @@ export default function ForumHome() {
                         setShowTopicForm={setShowTopicForm} />
                 )}
                 {topicList.map((topic) => (
-                <div className='topic'>
+                <div key={topic.id} className='topic'>
                     <div className='topic-content'>
                         <div className='topics-title'><Link to={`/forum/topic/${topic.id}`} >{topic.title}</Link></div>
                         <div className='topic-info'>

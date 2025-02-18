@@ -13,7 +13,7 @@ const TypeCard = ( {item} ) => {
 
     return (
 
-        <li key={item.id} className="item">
+        <li key={item} className="item">
             <Link to={`components/${catNames[item]}`} className='item-button'>
                 <img src={item.imageUrl} alt={item} className="item-image"/>
             </Link>

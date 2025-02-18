@@ -66,7 +66,7 @@ export default function ForumTopic() {
                         className="go-back-btn"
                         onClick={() => navigate(-1)}
                         ><FontAwesomeIcon icon={faTurnUp} /> Go Back</button>
-                        {user && topic.author_id === user.id && (
+                        {user && ( topic.author_id === user.id || user.roles.includes('ROLE_ADMIN')) && (
                         <button>Delete topic</button>
                         )}
                     </div>
@@ -84,7 +84,7 @@ export default function ForumTopic() {
                                 </div> 
                                 <span className='creation-date'>{comment.createTime}</span>
                             </div>
-                                {user && comment.author_id === user.id && (
+                                {user && (comment.author_id === user.id || user.roles.includes('ROLE_ADMIN')) && (
                                     <div>
                                         <button>edit</button> <button>delete</button>
                                     </div>
