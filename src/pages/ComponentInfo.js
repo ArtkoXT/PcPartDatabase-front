@@ -35,7 +35,7 @@ export default function ComponentInfo() {
         <div className="info-container">
             <h1 style={{color:'#c4c4c4'}}>{component.manufacturer_name} {component.name}</h1>
             <ul className="info-list">
-                {Object.entries(component).slice(1).map(([key, value]) => 
+                {Object.entries(component).slice(2).map(([key, value]) => 
                     <li key={key} className="info-li">
                         <strong>{keyMapping[key] || key}:</strong><span >{" "}</span>
                         {typeof value === "object" ? (

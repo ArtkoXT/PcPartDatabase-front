@@ -9,6 +9,7 @@ import ComponentList from "./pages/ComponentTable";
 import ComponentInfo from "./pages/ComponentInfo";
 import ComponentAddForm from "./pages/ComponentAddForm";
 import ForumHome from "./pages/Forum/ForumHome";
+import ForumTopic from "./pages/Forum/ForumTopic";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forum' element={<ForumHome />} />
+          <Route path='/forum/topic/:id' element={<ForumTopic />} />
           <Route path='*' element={<NotFound />} />  
         </Route>
       </Routes>
