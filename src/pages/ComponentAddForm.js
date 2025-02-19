@@ -95,70 +95,70 @@ export default function ComponentAddForm({isEdit}) {
         <div className="form-container">
         <form className="add-form" onSubmit={handleSubmit}>
             <h2 style={{color:'#c4c4c4'}}>{isEdit? ('Editing') : ('Add new component')}</h2>
-            <div className="add-form-div">
-                <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="name">Name:</label>
-                <input
-                    className="add-form-item-value"
-                    id="name"
-                    type="text"
-                    value={componentData.name}
-                    onChange={ (e) => setComponentData({...componentData, name: e.target.value})}
-                    required
-                />
-            </div>
-            <div className="add-form-div">
-                <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="manufacturer-select">Manufacturer:</label>
-                <select
-                    className="add-form-item-value"
-                    id="manufacturer-select"
-                    value={componentData.manufacturer_id}
-                    onChange={ (e) => {
-                        setComponentData({...componentData, manufacturer_id: e.target.value});
+                <div className="add-form-div">
+                    <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="name">Name:</label>
+                    <input
+                        className="add-form-item-value"
+                        id="name"
+                        type="text"
+                        value={componentData.name}
+                        onChange={ (e) => setComponentData({...componentData, name: e.target.value})}
+                        required
+                    />
+                </div>
+                <div className="add-form-div">
+                    <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="manufacturer-select">Manufacturer:</label>
+                    <select
+                        className="add-form-item-value"
+                        id="manufacturer-select"
+                        value={componentData.manufacturer_id}
+                        onChange={ (e) => {
+                            setComponentData({...componentData, manufacturer_id: e.target.value});
+                            }
                         }
-                    }
+                        required
+                        >
+                            <option value="">Select Manufacturer</option>
+                            {manufacturers.map( (m) => (
+                                <option key={m.id} value={m.id}>
+                                    {m.name}
+                                    </option>
+                            ))}
+                        </select>
+                </div>
+                <div className="add-form-div">
+                    <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="price">Price:</label>
+                    <input
+                        className="add-form-item-value"
+                        id="price"
+                        type="number"
+                        placeholder="320 EUR"
+                        value={componentData.price}
+                        onChange={ (e) => setComponentData({...componentData, price: e.target.value})}
+                        required
+                    />
+                </div>
+                <div className="add-form-div">
+                    <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="category-select">Select Category:</label>
+                    <select
+                    className="add-form-item-value"
+                    id="category-select"
+                    value={componentData.category}
+                    onChange={ (e) => {
+                        setComponentData( 
+                            {...componentData, category: e.target.value, 
+                                properties: categoryProperties[e.target.value] || {}
+                            }
+                        )
+                    }}
                     required
                     >
-                        <option value="">Select Manufacturer</option>
-                        {manufacturers.map( (m) => (
-                            <option key={m.id} value={m.id}>
-                                {m.name}
-                                </option>
+                        <option value="">Select Category</option>
+                        {categories.map( (cat) => (
+                            <option key={cat} value={cat}>{cat}</option>
                         ))}
                     </select>
-            </div>
-            <div className="add-form-div">
-                <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="price">Price:</label>
-                <input
-                    className="add-form-item-value"
-                    id="price"
-                    type="number"
-                    placeholder="320 EUR"
-                    value={componentData.price}
-                    onChange={ (e) => setComponentData({...componentData, price: e.target.value})}
-                    required
-                />
-            </div>
-            <div className="add-form-div">
-                <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="category-select">Select Category:</label>
-                <select
-                className="add-form-item-value"
-                id="category-select"
-                value={componentData.category}
-                onChange={ (e) => {
-                    setComponentData( 
-                        {...componentData, category: e.target.value, 
-                            properties: categoryProperties[e.target.value] || {}
-                        }
-                    )
-                }}
-                required
-                >
-                    <option value="">Select Category</option>
-                    {categories.map( (cat) => (
-                        <option key={cat} value={cat}>{cat}</option>
-                    ))}
-                </select>
-            </div>
+                </div>
             {Object.keys(componentData.properties).length > 0 && (
                 <div>
                     {Object.keys(componentData.properties).map((key) => (

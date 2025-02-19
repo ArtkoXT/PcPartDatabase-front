@@ -28,10 +28,24 @@
     border-radius: 20px;
 }
 .add-form-div{
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
+.search-box-container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+/* .add-form-input-fields{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+} */
 .add-form-item-value {
+    min-width: 40%;
     padding: 5px;
     margin: 8px 20px;
     background-color: #104d4d;
@@ -40,10 +54,13 @@
     border: 4px;
 }
 .add-form-item-key {
+    text-align: end;
+    width: 100%;
     padding: 5px;
     margin: 8px 20px;
     border: 1px solid;
     border: 4px;
+    
 }
 .save-button {
     font-weight: bold;

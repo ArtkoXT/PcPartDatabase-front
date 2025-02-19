@@ -55,7 +55,7 @@ export default function ComponentInfo() {
                     </li>
                 )}
             </ul>
-            {user && user.roles.includes('ADMIN') (
+            {user?.roles.includes('ROLE_ADMIN') && (
             <Link to={`/component/edit/${id}`} className='add-button'>Edit</Link>
             )}
         </div>
