@@ -10,6 +10,8 @@ import ComponentInfo from "./pages/ComponentInfo";
 import ComponentAddForm from "./pages/ComponentAddForm";
 import ForumHome from "./pages/Forum/ForumHome";
 import ForumTopic from "./pages/Forum/ForumTopic";
+import Profile from "./pages/Profile";
+import NotAutherized from "./pages/NotAutherized";
 
 function App() {
 
@@ -27,8 +29,10 @@ function App() {
           <Route path='/component/edit/:id' element={<ComponentAddForm isEdit={true}/>} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/forum' element={<ForumHome />} />
           <Route path='/forum/topic/:id' element={<ForumTopic />} />
+          <Route path='/unauthorized' element={<NotAutherized />} />
           <Route path='*' element={<NotFound />} />  
         </Route>
       </Routes>

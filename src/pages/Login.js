@@ -46,7 +46,7 @@ export default function Login() {
                     fontWeight: 'bold'}}
                     >Email:</label>
                     <input className="form-item"
-                    id="username"
+                    id="email"
                     placeholder="email@example.com"
                     type="text"
                     onChange={ (e) => setUserData({...userData, email: e.target.value})}

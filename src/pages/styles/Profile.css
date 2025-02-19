@@ -1,0 +1,47 @@
+.page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    background-color: rgb(10, 49, 49);
+    border: 5px solid;
+    border-color: rgb(19, 88, 88);
+    border-radius: 20px;
+    padding-bottom: 50px;
+}
+
+.profile-items{
+    width: 60%;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.text-container{
+    width: 100%;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.text-container:not(:first-child){
+    margin-top: 20px;
+}
+.input-field-container{
+    display: flex;
+}
+.profile-input-field{
+    border: none;
+    font-size: large;
+    background-color: #fff;
+    padding: 5px;
+}
