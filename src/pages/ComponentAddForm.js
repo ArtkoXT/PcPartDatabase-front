@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../AxiosConfig";
 import { useNavigate, useParams } from "react-router-dom";
+import ManufacturerForm from "./ManufacturerForm";
 
 export default function ComponentAddForm({isEdit}) {
 
@@ -17,6 +18,7 @@ export default function ComponentAddForm({isEdit}) {
         properties: {}
     });
 
+    const [showManuForm ,setShowManuForm] = useState(false);
     const [categories, setCategories] = useState([]);
     const [manufacturers, setManufacturers] = useState([]);
 
@@ -125,7 +127,11 @@ export default function ComponentAddForm({isEdit}) {
                                     </option>
                             ))}
                         </select>
-                        <button>Add new</button>
+                        <button className="add-manufacturer-btn" onClick={ () => setShowManuForm(true)}>Add new</button>
+                        {showManuForm && (
+                            <ManufacturerForm setShowManuForm={setShowManuForm} />
+                        )
+                        }
                 </div>
                 <div className="add-form-div">
                     <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="price">Price:</label>

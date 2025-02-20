@@ -2,8 +2,8 @@ import axios from "./AxiosConfig.js"
 
 class AuthService {
     logout() {
+        axios.post("/auth/signout", {}, { withCredentials: true });
         localStorage.removeItem("userInfo");
-        window.location.reload();
     }
 
     getCurrentUser() {

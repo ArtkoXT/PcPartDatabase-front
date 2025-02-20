@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AuthService from "../AuthService";
 import "./styles/Profile.css"
 import { useNavigate } from "react-router-dom";
+import axios from "../AxiosConfig";
 
 
 export default function Profile() {
@@ -21,6 +22,21 @@ export default function Profile() {
         }
 
     }, [])
+
+    const handleDelete = async (id) => {
+        if(window.confirm("Are you sure you want to delete your account?")){
+            if(window.confirm("Are you really sure? This action cannot be undone")) {
+                try {
+                    AuthService.logout();
+                    await axios.delete(`/users/${id}`);
+                } catch (error) {
+                    console.log("Encountered an error when deleting account: ", error);
+                    alert("Account deletion failed!");
+                }
+            }
+        }
+        
+    }
 
     const roleMapping = {
         ROLE_USER: "User",
@@ -59,6 +75,9 @@ export default function Profile() {
                     </div>
                     <div className="text-container">
                         <span>Your roles: </span> <span style={{fontWeight:'initial'}}>{user.roles.map( (role) => (roleMapping[role]))}</span>
+                    </div>
+                    <div>
+                        <button className="save-button">Edit</button> <button className="save-button" onClick={ () => handleDelete(user.id)}>Delete Account</button>
                     </div>
                 </div>
             </form>

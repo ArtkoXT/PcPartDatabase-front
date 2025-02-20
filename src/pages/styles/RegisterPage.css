@@ -27,6 +27,16 @@
     border-color: rgb(19, 88, 88);
     border-radius: 20px;
 }
+.add-manufacturer-btn{
+    font-weight: bold;
+    background-color: #e6c07b;
+    border: 2px solid #635335;
+    border-radius: 8px;
+}
+.add-manufacturer-btn:hover {
+    background-color: #a18757;
+    cursor: pointer;
+}
 .add-form-div{
     width: 100%;
     display: flex;

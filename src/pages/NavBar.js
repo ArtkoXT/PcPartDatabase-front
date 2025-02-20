@@ -19,6 +19,7 @@ const Layout = () => {
     const handleLogout = async () => {
         await axios.post("/auth/signout", {}, { withCredentials: true });
         AuthService.logout();
+        window.location.reload();
     };
 
 
