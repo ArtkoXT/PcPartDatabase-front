@@ -14,18 +14,56 @@ const ComponentList = ( {category} ) => {
 
     const [searchText, setSearchText] = useState("");
 
+    function getColumns(category) {
+        const baseColumns = [
+            {header: "Manufacturer", key: "manufacturer_name", bold: true},
+            {header: "Name", key: "name", bold: true, link: true},
+        ]
 
-    const columns = [
-        {header: "Manufacturer", key: "manufacturer_name", bold: true},
-        {header: "Name", key: "name", bold: true, link: true},
-        {header: "Price", key: "price"}
-    ]
+        let propertyColumns = []
+
+        switch (category) {
+            case "CPU":
+                propertyColumns = [...baseColumns, 
+                    { header: "Cores", key: "coreCount" }, 
+                    { header: "Threads", key: "threadCount" }, 
+                    { header: "Clock Speed", key: "coreClock" }, 
+                    {header: "Boost Clock", key: "boostClock"}
+                ];
+                break;
+            case "GPU":
+                propertyColumns = [...baseColumns, 
+                    { header: "VRAM", key: "memorySize" }, 
+                    { header: "Clock Speed", key: "baseClock" },
+                    {header: "Boost Clock", key: "boostClock"}
+                ];
+                break;
+            case "RAM":
+                propertyColumns = [...baseColumns, 
+                    { header: "Speed", key: "speed" },
+                    { header: "Capacity", key: "size" },
+                    { header: "CAS Latency", key: "casLatency" }
+                ];
+                break;
+            case "MOTHERBOARD":
+                propertyColumns = [...baseColumns, 
+                    { header: "Socket", key: "socket" },
+                    { header: "Form Factor", key: "formFactor" },
+                    { header: "Memory Max", key: "memoryMax" },
+                    { header: "Memory Slots", key: "memorySlots" }
+                ];
+                break;
+        }
+
+        return [...propertyColumns, {header: "Price", key: "price"}]
+    }
 
     const [componentList, setComponentList] = useState([])
 
     useEffect( () => {
         fetchComponents();
         checkIfAdmin();
+        console.log(category)
     }, []);
 
     const checkIfAdmin = () => {
@@ -66,20 +104,26 @@ const ComponentList = ( {category} ) => {
 
     return (
         <div className='table-container'>
-            <h1 style={{color: 'rgb(196, 196, 196)'}}>{category} List</h1>
-            <div className="search-box-container">
-                <label>Search</label>
-                <input
-                    className="search-box"
-                    type="text"
-                    value={searchText}
-                    onChange={handleSearch}
-                ></input>
+            <h1 style={{color: '#c4c4c4'}}>{category} List</h1>
+                <div className="table-actions-container">
+                    <div className="search-box-container">
+                        <label className="search-box-label">Search</label>
+                        <input
+                            className="search-box"
+                            type="text"
+                            placeholder="Enter name"
+                            value={searchText}
+                            onChange={handleSearch}
+                        ></input>
+                    </div>
+                {isAdmin &&( 
+                    <Link to={"/component/add"} className="add-button">Add New</Link>
+                )}
             </div>
             <table className='table-style'>
                 <thead>
                     <tr className='table-head'>
-                        {columns.map((col) => (
+                        {getColumns(category).map((col) => (
                             <th key={col.key} className="table-head-items">
                                 {col.header}
                             </th>       
@@ -90,7 +134,7 @@ const ComponentList = ( {category} ) => {
                 <tbody>
                     {filteredItems.filter(c => c.category === category).map( (c) => (
                         <tr key={c.id} className='table-tr'>
-                            {columns.map(({key, bold, link}) => (
+                            {getColumns(category).map(({key, bold, link}) => (
                                 <td key={key} 
                                     className="table-item"
                                     style={ bold ? {fontWeight: 'bold'} : {}}
@@ -100,7 +144,7 @@ const ComponentList = ( {category} ) => {
                                             {c[key]}
                                         </Link>
                                     ) : (
-                                        key === 'price' ? `${c[key]} €` : c[key]
+                                        key === 'price' ? `${c[key]} €` : c[key] || c.properties[key]
                                         )
                                     }
                                 </td>
@@ -118,10 +162,6 @@ const ComponentList = ( {category} ) => {
                     ))}
                 </tbody>
             </table>
-            {isAdmin? 
-            <Link to={"/component/add"} className="add-button">Add</Link>
-            : null
-            }
         </div>
     )
 };

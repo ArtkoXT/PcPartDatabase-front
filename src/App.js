@@ -22,7 +22,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/components/cpus" element={<ComponentList category={"CPU"} />} />
           <Route path='/components/graphic_cards' element={<ComponentList category={"GPU"} />} />
-          <Route path='/components/motherboards' element={<ComponentList category={"Motherboard"} />} />
+          <Route path='/components/motherboards' element={<ComponentList category={"MOTHERBOARD"} />} />
           <Route path='/components/memory' element={<ComponentList category={"RAM"} />} />
           <Route path='/component/:id' element={<ComponentInfo />} />
           <Route path='/component/add' element={<ComponentAddForm />} />

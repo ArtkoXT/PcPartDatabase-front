@@ -125,6 +125,7 @@ export default function ComponentAddForm({isEdit}) {
                                     </option>
                             ))}
                         </select>
+                        <button>Add new</button>
                 </div>
                 <div className="add-form-div">
                     <label className="add-form-item-key" style={{color:'#c4c4c4', fontWeight:'bold'}} htmlFor="price">Price:</label>
